@@ -36,7 +36,7 @@ Feature: Weather forecast
       | icon        | "03d"             |
     And minutely weather data is:
       | dt         | 1646318700 |
-      | 1646318700 | 0          |
+      | precipitation | 0          |
     And hourly weather data is:
       | dt         | 1646316000 |
       | temp       | 281.94     |
@@ -89,7 +89,7 @@ Feature: Weather forecast
       | id          | 500         |
       | main        | "Rain"      |
       | description | "lightrain" |
-      | icon        | 10d         |
+      | icon        | "10d"       |
     And alerts weather data is:
       | sender_name | "NWSPhiladelphia-MountHolly(NewJersey,Delaware,SoutheasternPennsylvania)"                                                                                                                                                                                                                                                                                                                                                               |
       | event       | "SmallCraftAdvisory"                                                                                                                                                                                                                                                                                                                                                                                                                    |
