@@ -8,16 +8,18 @@ import java.util.List;
 public class Daily {
     private long dt;
     private long sunrise;
+    private long sunset;
     private long moonrise;
     private long moonset;
 
     @JsonProperty("moon_phase")
     private double moonPhase;
 
-    private Temp temp;
+    @JsonProperty("temp")
+    private List<Temp> temps;
 
     @JsonProperty("feels_like")
-    private FeelsLike feelsLikes;
+    private List<FeelsLike> feelsLikes;
 
     private int pressure;
     private int humidity;
@@ -58,6 +60,14 @@ public class Daily {
         this.sunrise = sunrise;
     }
 
+    public long getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(long sunset) {
+        this.sunset = sunset;
+    }
+
     public long getMoonrise() {
         return moonrise;
     }
@@ -82,19 +92,19 @@ public class Daily {
         this.moonPhase = moonPhase;
     }
 
-    public Temp getTemp() {
-        return temp;
+    public List<Temp> getTemps() {
+        return temps;
     }
 
-    public void setTemp(Temp temp) {
-        this.temp = temp;
+    public void setTemps(List<Temp> temps) {
+        this.temps = temps;
     }
 
-    public FeelsLike getFeelsLikes() {
+    public List<FeelsLike> getFeelsLikes() {
         return feelsLikes;
     }
 
-    public void setFeelsLikes(FeelsLike feelsLikes) {
+    public void setFeelsLikes(List<FeelsLike> feelsLikes) {
         this.feelsLikes = feelsLikes;
     }
 
