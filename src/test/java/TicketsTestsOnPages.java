@@ -36,6 +36,8 @@ public class TicketsTestsOnPages {
         Assertions.assertEquals(ARRIVAL_AIRPORT, infoPage.getArrivalAirport(), "Wrong");
         Assertions.assertEquals(FIRST_NAME, infoPage.getName(), "Wrong Name!");
 
+        baseFunc.checkTextPresenceOnPage("4540");
+
         SeatsPage seatsPage = new SeatsPage(baseFunc);
         seatsPage.selectSeat(seatNr);
         seatsPage.clickBookButton();

@@ -69,4 +69,6 @@ public class PassengerInfoPage {
     public void clickBookBtn() {baseFunc.click(BOOK_BTN);}
 
 
+    public void fillInPassengerInfo(String firstName, String lastName, String discount, int passengersCount, int childCount, int luggageCount, String flightDate, int seatNr) {
+    }
 }

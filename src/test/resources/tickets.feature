@@ -3,19 +3,19 @@ Feature: Air Ticket Booking
   Scenario: Successful ticket booking
     Given airports:
       | from | RIX |
-      | to   | JFC |
+      | to   | MEL |
 
     And passenger info is:
-      | first_name | Dimko      |
-      | last       | The Tester |
+      | first_name | Aleksandrs |
+      | last       | Kiselis    |
 
     And flight info is:
-      | discount         | CCCCCC     |
-      | passengers_count | 2          |
+      | discount         | 37122289   |
+      | passengers_count | 3          |
       | child_count      | 1          |
-      | luggage_count    | 3          |
-      | flight_date      | 12-05-2018 |
-      | seat_nr          | 17         |
+      | luggage_count    | 2          |
+      | flight_date      | 14-05-2018 |
+      | seat_nr          | 28         |
 
     And home page is opened
 

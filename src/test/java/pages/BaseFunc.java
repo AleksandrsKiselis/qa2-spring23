@@ -82,4 +82,13 @@ public class BaseFunc {
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount));
     }
 
+    public void checkTextPresenceOnPage(String expectedText) {
+        String pageSource = browser.getPageSource();
+        if (pageSource.contains(expectedText)) {
+            System.out.println("Text found on page");
+        } else {
+            System.out.println("Text not found on page");
+        }
+    }
+
 }
