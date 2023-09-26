@@ -61,23 +61,14 @@ public class TicketsStepDefs {
     }
 
     @Then("selected airports appears on the passenger info page")
-    public void airports_appears() {
-        Assertions.assertEquals(infoPage.getDepartureAirport(), "DEPARTURE WRONG!");
-        Assertions.assertEquals(infoPage.getArrivalAirport(), "ARRIVAL WRONG!");
-        infoPage = new PassengerInfoPage(baseFunc);
+    public void check_selected_airports() {
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getDepartureAirport(), "Wrong Departure Airport!");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getArrivalAirport(), "Wrong Arrival Airport!");
     }
 
     @When("we are filling in passenger info")
-    public void passenger_info(Map<String, String> params) {
-        passenger.setFirstName(params.get("first_name"));
-        passenger.setLastName(params.get("last_name"));
-        flight.setDiscount(params.get("discount"));
-        flight.setPassengersCont(Integer.parseInt(params.get("passengers_count")));
-        flight.setChildCont(Integer.parseInt(params.get("child_count")));
-        flight.setLuggageCount(Integer.parseInt(params.get("luggage_count")));
-        flight.setFlightDate(params.get("flight_date"));
-        flight.setSeatNr(Integer.parseInt(params.get("seat_nr")));
-        infoPage = new PassengerInfoPage(baseFunc);
+    public void fill_in_flight_info() {
+       infoPage.fillInPassengerInfo(flight, passenger);
     }
 
     @And("requesting price")
@@ -88,9 +79,9 @@ public class TicketsStepDefs {
 
     @And("airports and price appears in flight details")
     public void airports_and_price_appears() {
-        Assertions.assertEquals(infoPage.getArrivalAirport(), "Wrong!");
-        Assertions.assertEquals(infoPage.getDepartureAirport(), "Error!");
-        baseFunc.checkTextPresenceOnPage("");
+        Assertions.assertEquals(infoPage.getArrivalAirport(), flight.getArrival(), "WRONG!");
+        Assertions.assertEquals(infoPage.getDepartureAirport(), flight.getDeparture(), "ERROR!");
+        baseFunc.checkTextPresenceOnPage("ERROR!");
     }
 
     @When("we are confirming price")
@@ -108,7 +99,7 @@ public class TicketsStepDefs {
     @Then("selected seat number appears")
     public void seat_number_appears(Map<String, String> params) {
         String expectedSeatNumber = params.get("seat_nr");
-        Assertions.assertEquals(expectedSeatNumber, "Wrong Seat!");
+        Assertions.assertEquals(expectedSeatNumber, flight.getSeatNr(), "Wrong Seat!");
         seatsPage = new SeatsPage(baseFunc);
     }
 

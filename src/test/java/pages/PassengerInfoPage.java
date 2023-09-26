@@ -1,10 +1,12 @@
 package pages;
 
-import model.ReservationInfo;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
+import model.tickets.Flight;
+import model.tickets.Passenger;
+import org.openqa.selenium.By;
+
+
+
 
 public class PassengerInfoPage {
     private final By FIRST_NAME = By.id("name");
@@ -31,38 +33,26 @@ public class PassengerInfoPage {
 
 
 
-    public void  fillInPassengerInfo(ReservationInfo reservationInfo) {
-        baseFunc.type(FIRST_NAME, reservationInfo.getFirstName());
-        baseFunc.type(LAST_NAME, reservationInfo.getLastName());
-        baseFunc.type(DISCOUNT, reservationInfo.getDiscount());
-        baseFunc.type(ADULTS, reservationInfo.getPassengerCount());
-        baseFunc.type(CHILDREN, reservationInfo.getChildCount());
-        baseFunc.type(BAG, reservationInfo.getBagsCount());
-        baseFunc.selectByText(FLIGHT, reservationInfo.getFlightDate());
+    public void  fillInPassengerInfo(Flight flight, Passenger passenger) {
+        baseFunc.type(FIRST_NAME, passenger.getFirstName());
+        baseFunc.type(LAST_NAME, passenger.getLastName());
+        baseFunc.type(DISCOUNT, flight.getDiscount());
+        baseFunc.type(ADULTS, flight.getPassengersCont());
+        baseFunc.type(CHILDREN, flight.getChildCont());
+        baseFunc.type(BAG, flight.getLuggageCount());
+        baseFunc.selectByText(FLIGHT, flight.getFlightDate());
     }
 
     public String getDepartureAirport() {
-        String airport = "RIX";
-        //Finding element by locator
-        baseFunc.findElements(FLIGHT_INFO).get(0);
-        //Getting text
-        baseFunc.getText(FLIGHT_INFO);
-        return airport;
+        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 5).get(0).getText();
     }
 
     public String getArrivalAirport() {
-        String airport = "MEL";
-        baseFunc.findElements(FLIGHT_INFO).get(1);
-        baseFunc.getText(FLIGHT_INFO);
-        return airport;
+        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 5).get(1).getText();
     }
 
     public String getName() {
-        String name = "Aleksandrs";
-        baseFunc.findElements(FLIGHT_INFO).get(2);
-        name.substring(0,name.length() - 1);
-        baseFunc.getText(FLIGHT_INFO);
-        return name;
+        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 5).get(2).getText();
     }
 
     public void clickGetPrice() {baseFunc.click(GET_PRICE_LINK);}

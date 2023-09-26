@@ -82,6 +82,10 @@ public class BaseFunc {
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount));
     }
 
+    public List<WebElement> waitForNumbersOfElementsToBe(By locator, int count) {
+        return wait.until(ExpectedConditions.numberOfElementsToBe(locator, count));
+    }
+
     public void checkTextPresenceOnPage(String expectedText) {
         String pageSource = browser.getPageSource();
         if (pageSource.contains(expectedText)) {
