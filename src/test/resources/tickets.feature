@@ -6,14 +6,14 @@ Feature: Air Ticket Booking
       | to   | MEL |
 
     And passenger info is:
-      | first_name | Aleksandrs |
+      | first_name | random |
       | last       | Kiselis    |
 
     And flight info is:
-      | discount         | 37122289   |
+      | discount         | 3712228   |
       | passengers_count | 3          |
       | child_count      | 1          |
-      | luggage_count    | 2          |
+      | luggage_count    | 3          |
       | flight_date      | 14-05-2018 |
       | seat_nr          | 28         |
 

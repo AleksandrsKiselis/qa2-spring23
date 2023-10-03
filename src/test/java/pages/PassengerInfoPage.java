@@ -32,7 +32,6 @@ public class PassengerInfoPage {
     }
 
 
-
     public void  fillInPassengerInfo(Flight flight, Passenger passenger) {
         baseFunc.type(FIRST_NAME, passenger.getFirstName());
         baseFunc.type(LAST_NAME, passenger.getLastName());
@@ -44,11 +43,12 @@ public class PassengerInfoPage {
     }
 
     public String getDepartureAirport() {
-        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 5).get(0).getText();
+        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 2).get(0).getText();
     }
 
+
     public String getArrivalAirport() {
-        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 5).get(1).getText();
+        return baseFunc.waitForNumbersOfElementsToBe(FLIGHT_INFO, 2).get(1).getText();
     }
 
     public String getName() {

@@ -69,9 +69,14 @@ public class BaseFunc {
 
     public void type(By locator, String text) {
         WebElement inputField = findElement(locator);
-        inputField.clear();
-        inputField.sendKeys(text);
+        if (text != null) {
+            inputField.clear();
+            inputField.sendKeys(text);
+        } else {
+            System.out.println("Input text is null!");
+        }
     }
+
 
     public void type(By locator, int text) {
         type(locator, String.valueOf(text));
